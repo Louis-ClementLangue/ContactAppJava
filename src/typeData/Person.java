@@ -9,7 +9,7 @@ public class Person {
     private String nickname;
     private String phoneNumber;
     private String adress;
-    private String emailAdress;
+    private String emailAddress;
     private Date birthDate;
 
     public int getId() {
@@ -60,12 +60,12 @@ public class Person {
         this.adress = adress;
     }
 
-    public String getEmailAdress() {
-        return emailAdress;
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
-    public void setEmailAdress(String emailAdress) {
-        this.emailAdress = emailAdress;
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     public Date getBirthDate() {
