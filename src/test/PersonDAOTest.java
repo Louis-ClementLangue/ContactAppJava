@@ -31,10 +31,49 @@ public class PersonDAOTest {
     }
 
     @Test
-    public void selectAllPersonnTest(){
+    public void selectAllPersonTest(){
         PersonDAO personDAO = new PersonDAO();
-        ArrayList<Person> personList = personDAO.listPersonnByLastname();
+        ArrayList<Person> personList = personDAO.listPersonByLastname();
         assertThat(personList).hasSize(3).doesNotContainNull();
+        assertThat(personList.get(0).getLastname()).isEqualTo("name11");
+        assertThat(personList.get(0).getFirstname()).isEqualTo("name21");
+        assertThat(personList.get(0).getNickname()).isEqualTo("name31");
+        assertThat(personList.get(0).getPhoneNumber()).isEqualTo("0123456789");
+        assertThat(personList.get(0).getAdress()).isEqualTo("isen1");
+        assertThat(personList.get(0).getEmailAddress()).isEqualTo("address@isen.fr");
+    }
+
+    @Test
+    public void selectOnePersonByLastName(){
+        PersonDAO personDAO = new PersonDAO();
+        ArrayList<Person> personList = personDAO.searchPersonByLastName("name11");
+        assertThat(personList).hasSize(1);
+        assertThat(personList.get(0).getLastname()).isEqualTo("name11");
+        assertThat(personList.get(0).getFirstname()).isEqualTo("name21");
+        assertThat(personList.get(0).getNickname()).isEqualTo("name31");
+        assertThat(personList.get(0).getPhoneNumber()).isEqualTo("0123456789");
+        assertThat(personList.get(0).getAdress()).isEqualTo("isen1");
+        assertThat(personList.get(0).getEmailAddress()).isEqualTo("address@isen.fr");
+    }
+
+    @Test
+    public void selectOnePersonByFisrtName(){
+        PersonDAO personDAO = new PersonDAO();
+        ArrayList<Person> personList = personDAO.searchPersonByFirstName("name21");
+        assertThat(personList).hasSize(1);
+        assertThat(personList.get(0).getLastname()).isEqualTo("name11");
+        assertThat(personList.get(0).getFirstname()).isEqualTo("name21");
+        assertThat(personList.get(0).getNickname()).isEqualTo("name31");
+        assertThat(personList.get(0).getPhoneNumber()).isEqualTo("0123456789");
+        assertThat(personList.get(0).getAdress()).isEqualTo("isen1");
+        assertThat(personList.get(0).getEmailAddress()).isEqualTo("address@isen.fr");
+    }
+
+    @Test
+    public void selectOnePersonByNickName(){
+        PersonDAO personDAO = new PersonDAO();
+        ArrayList<Person> personList = personDAO.searchPersonByNickName("name31");
+        assertThat(personList).hasSize(1);
         assertThat(personList.get(0).getLastname()).isEqualTo("name11");
         assertThat(personList.get(0).getFirstname()).isEqualTo("name21");
         assertThat(personList.get(0).getNickname()).isEqualTo("name31");
