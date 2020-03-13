@@ -1,6 +1,7 @@
 package typeData;
 
-import java.util.Date;
+
+import java.sql.Date;
 
 public class Person {
     private int id;

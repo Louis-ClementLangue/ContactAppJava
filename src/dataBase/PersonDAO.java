@@ -110,4 +110,28 @@ public class PersonDAO {
         return byNickname;
     }
 
+    public Person addPerson(Person person){
+        try (Connection connection = DataSourceFactory.getConnexion()){
+            try (PreparedStatement statement = connection.prepareStatement(
+                    "INSERT INTO person(lastname, firstname, nickname, phone_number, address, email_address, birth_date) VALUES(?, ?, ?, ?, ?, ?, ?)",
+                    Statement.RETURN_GENERATED_KEYS)){
+                statement.setString(1, person.getLastname());
+                statement.setString(2, person.getFirstname());
+                statement.setString(3, person.getNickname());
+                statement.setString(4, person.getPhoneNumber());
+                statement.setString(5, person.getAdress());
+                statement.setString(6, person.getEmailAddress());
+                statement.setDate(7, person.getBirthDate());
+                statement.executeUpdate();
+                try (ResultSet resultSet = statement.getGeneratedKeys()){
+                    resultSet.next();
+                    person.setId(resultSet.getInt(1));
+                    return person;
+                }
+            }
+        }catch (SQLException e){
+            throw new RuntimeException("Error Writing", e);
+        }
+    }
+
 }
