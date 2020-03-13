@@ -19,6 +19,12 @@ public class Controller {
         ps.setScene(scene);
     }
 
-    public void handleCreate(ActionEvent actionEvent) {
+    public void handleCreate(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(this.getClass().getResource("addelement.fxml"));
+        AnchorPane rootAnchorPane = loader.load();
+        Scene scene = new Scene(rootAnchorPane);
+        Stage ps = StageService.getInstance().getPrimaryStage();
+        ps.setScene(scene);
     }
 }
