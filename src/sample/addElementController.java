@@ -54,7 +54,7 @@ public class addElementController{
     public TextField birthday;
 
 
-    public void handleadd(ActionEvent actionEvent) {
+    public void handleadd(ActionEvent actionEvent) throws IOException {
         Person newPerson = new Person();
         if (firstname!= null){ newPerson.setFirstname(firstname.getText());}
         if (lastname != null) {newPerson.setLastname(lastname.getText());}
@@ -62,5 +62,12 @@ public class addElementController{
         if(phonenumber != null) {newPerson.setPhoneNumber(phonenumber.getText());}
         if(address != null) {newPerson.setAdress(address.getText());}
         if(mail !=null){ newPerson.setEmailAddress(mail.getText());}
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(this.getClass().getResource("listview.fxml"));
+        AnchorPane rootAnchorPane = loader.load();
+        Scene scene = new Scene(rootAnchorPane);
+        Stage ps = StageService.getInstance().getPrimaryStage();
+        ps.setScene(scene);
     }
 }
