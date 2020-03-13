@@ -1,5 +1,6 @@
 package sample;
 
+import dataBase.PersonDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
@@ -62,6 +63,9 @@ public class addElementController{
         if(phonenumber != null) {newPerson.setPhoneNumber(phonenumber.getText());}
         if(address != null) {newPerson.setAdress(address.getText());}
         if(mail !=null){ newPerson.setEmailAddress(mail.getText());}
+
+        PersonDAO personDAO = new PersonDAO();
+        personDAO.addPerson(newPerson);
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getResource("listview.fxml"));
