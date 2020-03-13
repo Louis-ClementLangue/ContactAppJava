@@ -5,7 +5,7 @@ import java.util.Date;
 public class Person {
     private int id;
     private String lastname;
-    private String fisrtname;
+    private String firstname;
     private String nickname;
     private String phoneNumber;
     private String adress;
@@ -28,12 +28,10 @@ public class Person {
         this.lastname = lastname;
     }
 
-    public String getFisrtname() {
-        return fisrtname;
-    }
+    public String getFirstname() {return firstname;}
 
-    public void setFisrtname(String fisrtname) {
-        this.fisrtname = fisrtname;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
     public String getNickname() {

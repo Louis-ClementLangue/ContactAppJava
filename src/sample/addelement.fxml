@@ -11,7 +11,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.addElementController">
    <children>
       <Button layoutX="534.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleback" text="Retour" />
@@ -37,13 +36,13 @@
             <Label text="Adresse" GridPane.rowIndex="4" />
             <Label text="Adresse e-mail" GridPane.rowIndex="5" />
             <Label text="Anniversaire" GridPane.rowIndex="6" />
-            <TextField prefHeight="25.0" prefWidth="402.0" GridPane.columnIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField prefHeight="60.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField id="firstname" fx:id="firstname" prefHeight="25.0" prefWidth="402.0" GridPane.columnIndex="1" />
+            <TextField id="lastname" fx:id="lastname" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField id="nickname" fx:id="nickname" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField id="phonenumber" fx:id="phonenumber" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField id="address" fx:id="address" prefHeight="60.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField id="mail" fx:id="mail" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField id="birthday" fx:id="birthday" GridPane.columnIndex="1" GridPane.rowIndex="6" />
          </children>
       </GridPane>
       <Text layoutX="245.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter un contact" wrappingWidth="117.00001358985901">
@@ -51,7 +50,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Button layoutX="276.0" layoutY="362.0" mnemonicParsing="false" text="Ajouter" />
+      <Button layoutX="276.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleadd" text="Ajouter" />
    </children>
    <padding>
       <Insets bottom="5.0" top="5.0" />
