@@ -134,4 +134,23 @@ public class PersonDAO {
         }
     }
 
+    public void updatePerson(Person person){
+        try (Connection connection = DataSourceFactory.getConnexion()){
+            try (PreparedStatement statement = connection.prepareStatement(
+                    "UPDATE person set lastname=?, firstname=?, nickname=?, phone_number=?, address=?, email_address=?, birth_date=? WHERE idperson=?")){
+                statement.setString(1, person.getLastname());
+                statement.setString(2, person.getFirstname());
+                statement.setString(3, person.getNickname());
+                statement.setString(4, person.getPhoneNumber());
+                statement.setString(5, person.getAdress());
+                statement.setString(6, person.getEmailAddress());
+                statement.setDate(7, person.getBirthDate());
+                statement.setInt(8, person.getId());
+                statement.executeUpdate();
+            }
+        }catch (SQLException e){
+            throw new RuntimeException("Error Update", e);
+        }
+    }
+
 }

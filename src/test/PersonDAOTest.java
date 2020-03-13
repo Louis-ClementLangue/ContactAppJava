@@ -112,4 +112,29 @@ public class PersonDAOTest {
         assertThat(personList.get(3).getAdress()).isEqualTo("parking");
         assertThat(personList.get(3).getEmailAddress()).isEqualTo("toyota.gare@park.us");
     }
+
+    @Test
+    public void test6_updatePerson(){
+        Person person = new Person();
+        person.setLastname("toyota");
+        person.setFirstname("park");
+        person.setNickname("car");
+        person.setPhoneNumber("3630");
+        person.setAdress("parking");
+        person.setEmailAddress("toyota.gare@park.us");
+        person.setBirthDate(new Date(2020, 5, 4));
+        PersonDAO personDAO = new PersonDAO();
+        personDAO.addPerson(person);
+        person.setNickname("hybrid");
+        personDAO.updatePerson(person);
+        ArrayList<Person> personList = personDAO.listPersonByLastname();
+        assertThat(personList).hasSize(4).doesNotContainNull();
+        assertThat(personList.get(3).getId()).isNotEqualTo(0);
+        assertThat(personList.get(3).getLastname()).isEqualTo("toyota");
+        assertThat(personList.get(3).getFirstname()).isEqualTo("park");
+        assertThat(personList.get(3).getNickname()).isEqualTo("hybrid");
+        assertThat(personList.get(3).getPhoneNumber()).isEqualTo("3630");
+        assertThat(personList.get(3).getAdress()).isEqualTo("parking");
+        assertThat(personList.get(3).getEmailAddress()).isEqualTo("toyota.gare@park.us");
+    }
 }
