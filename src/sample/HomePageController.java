@@ -9,7 +9,7 @@ import service.StageService;
 
 import java.io.IOException;
 
-public class Controller {
+public class HomePageController {
     public void handleList(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getResource("listview.fxml"));
@@ -27,4 +27,5 @@ public class Controller {
         Stage ps = StageService.getInstance().getPrimaryStage();
         ps.setScene(scene);
     }
+
 }
