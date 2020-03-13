@@ -153,4 +153,16 @@ public class PersonDAO {
         }
     }
 
+    public void deletePerson(Person person){
+        try (Connection connection = DataSourceFactory.getConnexion()){
+            try (PreparedStatement statement = connection.prepareStatement(
+                    "DELETE FROM person WHERE idperson=?")){
+                statement.setInt(1, person.getId());
+                statement.executeUpdate();
+            }
+        }catch (SQLException e){
+            throw new RuntimeException("Error Delete", e);
+        }
+    }
+
 }

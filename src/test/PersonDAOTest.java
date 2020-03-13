@@ -137,4 +137,15 @@ public class PersonDAOTest {
         assertThat(personList.get(3).getAdress()).isEqualTo("parking");
         assertThat(personList.get(3).getEmailAddress()).isEqualTo("toyota.gare@park.us");
     }
+
+    @Test
+    public void test7_deletePerson(){
+        PersonDAO personDAO = new PersonDAO();
+        Person person = personDAO.searchPersonByLastName("name13").get(0);
+        personDAO.deletePerson(person);
+        ArrayList<Person> personList = personDAO.listPersonByLastname();
+        assertThat(personList).hasSize(2).doesNotContainNull();
+        assertThat(personList.get(0).getLastname()).isEqualTo("name11");
+        assertThat(personList.get(1).getLastname()).isEqualTo("name12");
+    }
 }
