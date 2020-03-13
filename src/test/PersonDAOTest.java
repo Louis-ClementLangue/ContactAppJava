@@ -35,6 +35,7 @@ public class PersonDAOTest {
         PersonDAO personDAO = new PersonDAO();
         ArrayList<Person> personList = personDAO.listPersonByLastname();
         assertThat(personList).hasSize(3).doesNotContainNull();
+        assertThat(personList.get(0).getId()).isNotEqualTo(0);
         assertThat(personList.get(0).getLastname()).isEqualTo("name11");
         assertThat(personList.get(0).getFirstname()).isEqualTo("name21");
         assertThat(personList.get(0).getNickname()).isEqualTo("name31");
@@ -48,6 +49,7 @@ public class PersonDAOTest {
         PersonDAO personDAO = new PersonDAO();
         ArrayList<Person> personList = personDAO.searchPersonByLastName("name11");
         assertThat(personList).hasSize(1);
+        assertThat(personList.get(0).getId()).isNotEqualTo(0);
         assertThat(personList.get(0).getLastname()).isEqualTo("name11");
         assertThat(personList.get(0).getFirstname()).isEqualTo("name21");
         assertThat(personList.get(0).getNickname()).isEqualTo("name31");
@@ -61,6 +63,7 @@ public class PersonDAOTest {
         PersonDAO personDAO = new PersonDAO();
         ArrayList<Person> personList = personDAO.searchPersonByFirstName("name21");
         assertThat(personList).hasSize(1);
+        assertThat(personList.get(0).getId()).isNotEqualTo(0);
         assertThat(personList.get(0).getLastname()).isEqualTo("name11");
         assertThat(personList.get(0).getFirstname()).isEqualTo("name21");
         assertThat(personList.get(0).getNickname()).isEqualTo("name31");
@@ -74,6 +77,7 @@ public class PersonDAOTest {
         PersonDAO personDAO = new PersonDAO();
         ArrayList<Person> personList = personDAO.searchPersonByNickName("name31");
         assertThat(personList).hasSize(1);
+        assertThat(personList.get(0).getId()).isNotEqualTo(0);
         assertThat(personList.get(0).getLastname()).isEqualTo("name11");
         assertThat(personList.get(0).getFirstname()).isEqualTo("name21");
         assertThat(personList.get(0).getNickname()).isEqualTo("name31");
