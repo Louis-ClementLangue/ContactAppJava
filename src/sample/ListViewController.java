@@ -59,13 +59,13 @@ public class ListViewController implements Initializable {
 
     public void display(MouseEvent mouseEvent) {
         Person person = tableview.getSelectionModel().getSelectedItem();
-        firstnamefield.setText(person.getFirstname());
+       if(person != null){ firstnamefield.setText(person.getFirstname());
         lastnamefield.setText(person.getLastname());
         nicknamefield.setText(person.getNickname());
         numberfield.setText(person.getPhoneNumber());
         adressefield.setText(person.getAdress());
         mailfield.setText(person.getEmailAddress());
-        if(person.getBirthDate()!=null){birthdayfield.setText(person.getBirthDate().toString());}else{birthdayfield.setText("");}
+        if(person.getBirthDate()!=null){birthdayfield.setText(person.getBirthDate().toString());}else{birthdayfield.setText("");}}
     }
 
     public void modify(ActionEvent actionEvent) throws IOException {
