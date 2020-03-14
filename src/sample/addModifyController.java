@@ -84,4 +84,18 @@ public class addModifyController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
+    public void delete(ActionEvent actionEvent) throws IOException {
+        Person Personmodified = new Person();
+        Personmodified.setId(id);
+        PersonDAO personDAO = new PersonDAO();
+        personDAO.deletePerson(Personmodified);
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(this.getClass().getResource("listview.fxml"));
+        AnchorPane rootAnchorPane = loader.load();
+        Scene scene = new Scene(rootAnchorPane);
+        Stage ps = StageService.getInstance().getPrimaryStage();
+        ps.setScene(scene);
+
+    }
 }
