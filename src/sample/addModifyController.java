@@ -77,7 +77,7 @@ public class addModifyController implements Initializable {
     phonenumber.setText(person.getPhoneNumber());
     address.setText(person.getAdress());
     mail.setText(person.getEmailAddress());
-    birthday.setValue(person.getBirthDate().toLocalDate());
+    if(person.getBirthDate()!=null){birthday.setValue(person.getBirthDate().toLocalDate());}
     id= person.getId();
 
     }
