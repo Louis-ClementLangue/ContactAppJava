@@ -9,10 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TablePosition;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -46,7 +43,7 @@ public class ListViewController implements Initializable {
     public Label adressefield;
     public Label mailfield;
     public Label birthdayfield;
-
+    public TextField searchfield;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -81,5 +78,33 @@ public class ListViewController implements Initializable {
         Scene scene = new Scene(rootAnchorPane);
         Stage ps = StageService.getInstance().getPrimaryStage();
         ps.setScene(scene);
+    }
+
+   /* ObservableList<Person> observableLastNameList = FXCollections.observableList(
+            new PersonDAO().searchPersonByLastname(searchfield.getText()));*/
+    public void search(ActionEvent actionEvent) {
+        PersonDAO person = new PersonDAO();
+        ObservableList<Person> observableLastNameList = FXCollections.observableList(person.searchPersonByLastName(searchfield.getText()));
+        ObservableList<Person> observableFirstNameList = FXCollections.observableList(person.searchPersonByFirstName(searchfield.getText()));
+        ObservableList<Person> observableNickNameList = FXCollections.observableList(person.searchPersonByNickName(searchfield.getText()));
+        colfirstname.setCellValueFactory(new PropertyValueFactory<Person, String>("firstname"));
+        collastname.setCellValueFactory(new PropertyValueFactory<Person, String>("lastname"));
+        if(person.searchPersonByLastName(searchfield.getText()).size()!=0){
+            tableview.setItems(observableLastNameList);
+        }
+
+        else if (person.searchPersonByFirstName(searchfield.getText()).size()!=0){
+            tableview.setItems(observableFirstNameList);
+        }
+
+        else if(person.searchPersonByNickName(searchfield.getText()).size()!=0){
+            tableview.setItems(observableNickNameList);
+        }
+        else {
+            tableview.setItems(observableList);
+        }
+    }
+
+    public void export(ActionEvent actionEvent) {
     }
 }

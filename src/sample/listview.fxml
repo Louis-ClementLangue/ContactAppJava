@@ -28,11 +28,11 @@
                     <items>
                       <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#handleAdd" prefHeight="25.0" prefWidth="117.0" text="Ajouter un contact" textAlignment="CENTER" />
                         <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#modify" prefHeight="25.0" prefWidth="117.0" text="Modifier le contact" textAlignment="CENTER" />
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Exporter" />
+                        <Button fx:id="export" mnemonicParsing="false" onAction="#export" prefHeight="25.0" prefWidth="79.0" text="Exporter" />
                     </items>
                   </ToolBar>
-                  <TextField layoutY="2.0" prefHeight="25.0" prefWidth="281.0" promptText="Rechercher un contact" />
-                  <Button layoutX="288.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="Ok" />
+                  <TextField fx:id="searchfield" layoutY="2.0" prefHeight="25.0" prefWidth="281.0" promptText="Rechercher un contact" />
+                  <Button fx:id="entersearch" layoutX="288.0" layoutY="2.0" mnemonicParsing="false" onAction="#search" prefHeight="25.0" prefWidth="42.0" text="Ok" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
