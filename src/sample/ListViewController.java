@@ -68,4 +68,13 @@ public class ListViewController implements Initializable {
         adressefield.setText(person.getAdress());
         mailfield.setText(person.getEmailAddress());
     }
+
+    public void modify(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(this.getClass().getResource("listview.fxml"));
+        AnchorPane rootAnchorPane = loader.load();
+        Scene scene = new Scene(rootAnchorPane);
+        Stage ps = StageService.getInstance().getPrimaryStage();
+        ps.setScene(scene);
+    }
 }
