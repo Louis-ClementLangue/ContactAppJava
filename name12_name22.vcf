@@ -6,4 +6,5 @@ NICKNAME:name32
 TEL;TYPE=home,voice;VALUE=uri:tel:0123456789
 EMAIL:address@isen.fr
 ADR;TYPE=home:isen2
+BDAY:20200501
 END:VCARD

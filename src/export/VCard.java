@@ -2,7 +2,6 @@ package export;
 
 import typeData.Person;
 
-import java.io.File;
 import java.io.FileWriter;
 
 public class VCard {
@@ -23,6 +22,7 @@ public class VCard {
         String tel = "";
         String email = "";
         String adr = "";
+        String birth = "";
         if (!person.getLastname().equals("") && !person.getFirstname().equals("")){
             n = "N:" + person.getLastname() +";" + person.getFirstname() +";;;\n";
             fn = "FN:" + person.getLastname() + person.getFirstname() + "\n";
@@ -50,14 +50,20 @@ public class VCard {
             adr = "ADR;TYPE=home:" + person.getAdress() + "\n";
         }
 
+        if (person.getBirthDate() != null){
+            String birthString = person.getBirthDate().toString();
+            birth = "BDAY:"+ birthString.substring(0, 4) + birthString.substring(5, 7) + birthString.substring(8, 10) + "\n";
+        }
+
         String fileContent = "BEGIN:VCARD\n" +
                 "VERSION:4.0\n" +
                 n +
                 fn +
                 nickname +
                 tel +
-                email+
-                adr+
+                email +
+                adr +
+                birth +
                 "END:VCARD";
         try {
             file = new FileWriter(this.nameFolder);
