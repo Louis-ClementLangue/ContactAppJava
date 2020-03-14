@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -21,6 +22,8 @@ import typeData.Person;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class addElementController{
@@ -52,7 +55,7 @@ public class addElementController{
     public TextField mail;
 
     @FXML
-    public TextField birthday;
+    public DatePicker birthday;
 
 
     public void handleadd(ActionEvent actionEvent) throws IOException {
@@ -63,7 +66,7 @@ public class addElementController{
         if(phonenumber != null) {newPerson.setPhoneNumber(phonenumber.getText());}
         if(address != null) {newPerson.setAdress(address.getText());}
         if(mail !=null){ newPerson.setEmailAddress(mail.getText());}
-
+        if(birthday.getValue() == null){newPerson.setBirthDate(null);System.out.println("Wesh");}else if(birthday.getValue() !=null){newPerson.setBirthDate(java.sql.Date.valueOf(birthday.getValue()));}
         PersonDAO personDAO = new PersonDAO();
         personDAO.addPerson(newPerson);
 

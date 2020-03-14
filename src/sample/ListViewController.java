@@ -65,6 +65,7 @@ public class ListViewController implements Initializable {
         numberfield.setText(person.getPhoneNumber());
         adressefield.setText(person.getAdress());
         mailfield.setText(person.getEmailAddress());
+        if(person.getBirthDate()!=null){birthdayfield.setText(person.getBirthDate().toString());}else{birthdayfield.setText("");}
     }
 
     public void modify(ActionEvent actionEvent) throws IOException {

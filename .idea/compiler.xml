@@ -20,7 +20,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ContactAppJava" target="7" />
+      <module name="ContactAppJava" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

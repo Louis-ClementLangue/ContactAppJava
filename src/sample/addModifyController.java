@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -47,7 +48,7 @@ public class addModifyController implements Initializable {
     public int id;
 
     @FXML
-    public TextField birthday;
+    public javafx.scene.control.DatePicker birthday;
 
     public void handlemodify(ActionEvent actionEvent) throws IOException {
         Person Personmodified = new Person();
@@ -58,7 +59,7 @@ public class addModifyController implements Initializable {
         if(phonenumber != null) {Personmodified.setPhoneNumber(phonenumber.getText());}
         if(address != null) {Personmodified.setAdress(address.getText());}
         if(mail !=null){ Personmodified.setEmailAddress(mail.getText());}
-
+        if(birthday.getValue() == null){Personmodified.setBirthDate(null);System.out.println("Wesh");}else if(birthday.getValue() !=null){Personmodified.setBirthDate(java.sql.Date.valueOf(birthday.getValue()));}
         PersonDAO personDAO = new PersonDAO();
         personDAO.updatePerson(Personmodified);
 
@@ -76,6 +77,7 @@ public class addModifyController implements Initializable {
     phonenumber.setText(person.getPhoneNumber());
     address.setText(person.getAdress());
     mail.setText(person.getEmailAddress());
+    birthday.setValue(person.getBirthDate().toLocalDate());
     id= person.getId();
 
     }
