@@ -11,22 +11,21 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ListViewController">
    <children>
       <SplitPane dividerPositions="0.5100334448160535" prefHeight="400.0" prefWidth="600.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TableView layoutY="7.0" prefHeight="358.0" prefWidth="302.0">
+                  <TableView fx:id="tableview" layoutY="7.0" onMouseClicked="#display" prefHeight="358.0" prefWidth="302.0">
                     <columns>
-                      <TableColumn prefWidth="148.0" text="Prénom" />
-                      <TableColumn minWidth="0.0" prefWidth="153.0" text="Nom" />
+                      <TableColumn fx:id="colfirstname" prefWidth="148.0" text="Prénom" />
+                      <TableColumn fx:id="collastname" minWidth="0.0" prefWidth="153.0" text="Nom" />
                     </columns>
                   </TableView>
                   <ToolBar layoutY="363.0" prefHeight="36.0" prefWidth="302.0">
                     <items>
-                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="144.0" onAction="#handleAdd" text="Ajouter un contact" />
+                      <Button mnemonicParsing="false" onAction="#handleAdd" prefHeight="25.0" prefWidth="144.0" text="Ajouter un contact" />
                         <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" text="Supprimer un contact" textAlignment="CENTER" />
                     </items>
                   </ToolBar>
@@ -56,13 +55,13 @@
                         <Label text="Adresse" GridPane.rowIndex="4" />
                         <Label text="Adresse e-mail" GridPane.rowIndex="5" />
                         <Label text="Anniversaire" GridPane.rowIndex="6" />
-                        <Label text="Label" GridPane.columnIndex="1" />
-                        <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label fx:id="firstnamefield" GridPane.columnIndex="1" />
+                        <Label fx:id="lastnamefield" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="nicknamefield" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="numberfield" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="adressefield" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="mailfield" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label fx:id="birthdayfield" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                      </children>
                   </GridPane>
                </children>
