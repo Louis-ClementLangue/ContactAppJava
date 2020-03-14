@@ -1,6 +1,7 @@
 package sample;
 
 import dataBase.PersonDAO;
+import export.VCard;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -106,5 +107,14 @@ public class ListViewController implements Initializable {
     }
 
     public void export(ActionEvent actionEvent) {
+        boolean done = true;
+        PersonDAO personDAO = new PersonDAO();
+        ArrayList<Person> personArrayList = personDAO.listPersonByLastname();
+        for (Person i:personArrayList){
+            VCard vCard = new VCard(i);
+            if(vCard.exportFile() == false){
+                done = false;
+            }
+        }
     }
 }

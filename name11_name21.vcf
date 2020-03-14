@@ -1,0 +1,9 @@
+BEGIN:VCARD
+VERSION:4.0
+N:name11;name21;;;
+FN:name11name21
+NICKNAME:name31
+TEL;TYPE=home,voice;VALUE=uri:tel:0123456789
+EMAIL:address@isen.fr
+ADR;TYPE=home:isen1
+END:VCARD
