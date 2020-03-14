@@ -70,9 +70,14 @@ public class ListViewController implements Initializable {
     }
 
     public void modify(ActionEvent actionEvent) throws IOException {
+        Person persontomodify = tableview.getSelectionModel().getSelectedItem();
+
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(this.getClass().getResource("listview.fxml"));
+        loader.setLocation(this.getClass().getResource("modifyelement.fxml"));
+
         AnchorPane rootAnchorPane = loader.load();
+        addModifyController id = loader.getController();
+        id.getPersonToModify(persontomodify);
         Scene scene = new Scene(rootAnchorPane);
         Stage ps = StageService.getInstance().getPrimaryStage();
         ps.setScene(scene);

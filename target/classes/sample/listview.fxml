@@ -26,7 +26,7 @@
                   <ToolBar layoutY="363.0" prefHeight="36.0" prefWidth="302.0">
                     <items>
                       <Button mnemonicParsing="false" onAction="#handleAdd" prefHeight="25.0" prefWidth="144.0" text="Ajouter un contact" />
-                        <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" text="Supprimer un contact" textAlignment="CENTER" />
+                        <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#modify" prefHeight="25.0" prefWidth="142.0" text="Modifier le contact" textAlignment="CENTER" />
                     </items>
                   </ToolBar>
                </children>
