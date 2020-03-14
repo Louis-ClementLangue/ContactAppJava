@@ -35,7 +35,8 @@ public class PersonDAO {
     public ArrayList<Person> searchPersonByLastName(String lastName){
         ArrayList<Person> byLastname = new ArrayList<Person>();
         try (Connection connection = DataSourceFactory.getConnexion()){
-            try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM person WHERE lastName= ? ORDER BY lastname")){
+            try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM person WHERE lastName LIKE ? ORDER BY lastname")){
+                lastName = lastName + "%";
                 statement.setString(1, lastName);
                 try (ResultSet resultSet = statement.executeQuery()){
                     while (resultSet.next()){
@@ -61,7 +62,8 @@ public class PersonDAO {
     public ArrayList<Person> searchPersonByFirstName(String firstName){
         ArrayList<Person> byFirstname = new ArrayList<Person>();
         try (Connection connection = DataSourceFactory.getConnexion()){
-            try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM person WHERE firstName= ? ORDER BY lastname")){
+            try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM person WHERE firstName LIKE ? ORDER BY lastname")){
+                firstName = firstName + "%";
                 statement.setString(1, firstName);
                 try (ResultSet resultSet = statement.executeQuery()){
                     while (resultSet.next()){
@@ -84,11 +86,12 @@ public class PersonDAO {
         return byFirstname;
     }
 
-    public ArrayList<Person> searchPersonByNickName(String firstName){
+    public ArrayList<Person> searchPersonByNickName(String nickName){
         ArrayList<Person> byNickname = new ArrayList<Person>();
         try (Connection connection = DataSourceFactory.getConnexion()){
-            try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM person WHERE nickName= ? ORDER BY lastname")){
-                statement.setString(1, firstName);
+            try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM person WHERE nickName LIKE ? ORDER BY lastname")){
+                nickName = nickName + "%";
+                statement.setString(1, nickName);
                 try (ResultSet resultSet = statement.executeQuery()){
                     while (resultSet.next()){
                         Person person = new Person();
