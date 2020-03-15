@@ -15,7 +15,9 @@ la base de donné utilisé est la même que celle fourni par le sujet du projet,
 Pour se connecter, nous avons utiliser un serveur virtuel (localhost) géré par phpMyAdmin, il suffit d'importer la table
 La connexion se fait par la méthode getConnetion de la classe DataSourceFactory. 
 Pour se connecter modifiez la ligne 10 sous ce format :
+```{java}
 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:[N°de port]/[dataBaseName]", "[user]", "[p assword]");
+```
 
 ## Fonctionnalités disponibles
 L'affichage de tous les contacts dans un tableau avec a coté le détail pour un contact sélectioné
