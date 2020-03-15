@@ -16,7 +16,7 @@ Pour se connecter, nous avons utiliser un serveur virtuel (localhost) géré par
 La connexion se fait par la méthode getConnetion de la classe DataSourceFactory. 
 Pour se connecter modifiez la ligne 10 sous ce format :
 ```{java}
-Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:[N°de port]/[dataBaseName]", "[user]", "[p assword]");
+Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:[N°de port]/[dataBaseName]", "[user]", "[password]");
 ```
 
 ## Fonctionnalités disponibles
