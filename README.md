@@ -21,10 +21,15 @@ Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:[N°
 
 ## Fonctionnalités disponibles
 L'affichage de tous les contacts dans un tableau avec à coté, le détail pour un contact sélectioné
+
 L'ajout de contact
+
 La modification de contact
+
 La suppression de contact
+
 L'export de tous les contacts en format v-card
+
 
 La recherche de contact
 
